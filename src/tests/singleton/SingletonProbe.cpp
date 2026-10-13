@@ -28,18 +28,14 @@ const void* addressOf() {
 }
 
 #define CARL_PROBE_ENTRY(T) \
-    Entry { #T, &addressOf<T> }
+    Entry {                 \
+        #T, &addressOf<T>   \
+    }
 
 const std::array entries{
-    CARL_PROBE_ENTRY(carl::VariablePool),
-    CARL_PROBE_ENTRY(carl::MonomialPool),
-    CARL_PROBE_ENTRY(carl::logging::Logger),
-    CARL_PROBE_ENTRY(carl::TimingCollector),
-    CARL_PROBE_ENTRY(carl::SortManager),
-    CARL_PROBE_ENTRY(carl::SortValueManager),
-    CARL_PROBE_ENTRY(carl::UFManager),
-    CARL_PROBE_ENTRY(carl::UFInstanceManager),
-    CARL_PROBE_ENTRY(carl::BVTermPool),
+    CARL_PROBE_ENTRY(carl::VariablePool),     CARL_PROBE_ENTRY(carl::MonomialPool),      CARL_PROBE_ENTRY(carl::logging::Logger),
+    CARL_PROBE_ENTRY(carl::TimingCollector),  CARL_PROBE_ENTRY(carl::SortManager),       CARL_PROBE_ENTRY(carl::SortValueManager),
+    CARL_PROBE_ENTRY(carl::UFManager),        CARL_PROBE_ENTRY(carl::UFInstanceManager), CARL_PROBE_ENTRY(carl::BVTermPool),
     CARL_PROBE_ENTRY(carl::BVConstraintPool),
 };
 }  // namespace
