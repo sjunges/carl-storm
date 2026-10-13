@@ -137,7 +137,6 @@ namespace carl {
  * Implements a manager for uninterpreted function instances, containing their actual contents and allocating their ids.
  */
 class CARL_EXPORT UFInstanceManager : public Singleton<UFInstanceManager> {
-
    private:
     // Members.
 

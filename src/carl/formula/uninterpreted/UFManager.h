@@ -140,7 +140,6 @@ namespace carl {
  * Implements a manager for uninterpreted functions, containing their actual contents and allocating their ids.
  */
 class CARL_EXPORT UFManager : public Singleton<UFManager> {
-
    private:
     // Members.
 

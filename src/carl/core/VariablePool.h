@@ -26,7 +26,6 @@ namespace carl {
  * All methods that modify the pool, that are getInstance(), getFreshVariable() and setName(), are thread-safe.
  */
 class CARL_EXPORT VariablePool : public Singleton<VariablePool> {
-
    private:
     /**
      * Contains the id of the next variable to be created for each type.

@@ -10,7 +10,6 @@
 
 namespace carl {
 class CARL_EXPORT BVTermPool : public Singleton<BVTermPool>, public Pool<BVTermContent> {
-
    public:
     /**
      * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
