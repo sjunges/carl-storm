@@ -90,6 +90,12 @@ class __attribute__((visibility("default"))) MonomialPool : public Singleton<Mon
 
    public:
     /**
+     * Returns the single pool instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining Singleton::getInstance() gets its own copy.
+     */
+    static MonomialPool& getInstance();
+
+    /**
      * Try to add the given monomial to the pool.
      * @param _monomial The monomial to add.
      * @return The corresponding monomial in the pool.

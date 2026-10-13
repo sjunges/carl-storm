@@ -10,6 +10,11 @@
 
 namespace carl {
 
+SortManager& SortManager::getInstance() {
+    static SortManager instance;
+    return instance;
+}
+
 std::ostream& SortManager::print(std::ostream& os, const Sort& sort) const {
     const SortContent& sc = getContent(sort);
     if (sc.indices != nullptr)

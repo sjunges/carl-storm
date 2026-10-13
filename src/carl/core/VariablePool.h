@@ -101,6 +101,12 @@ class __attribute__((visibility("default"))) VariablePool : public Singleton<Var
     Variable getFreshVariable(const std::string& name, VariableType type = VariableType::VT_REAL);
 
    public:
+    /**
+     * Returns the single pool instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining Singleton::getInstance() gets its own copy.
+     */
+    static VariablePool& getInstance();
+
     Variable getFreshPersistentVariable(VariableType type = VariableType::VT_REAL) noexcept;
     Variable getFreshPersistentVariable(const std::string& name, VariableType type = VariableType::VT_REAL);
 

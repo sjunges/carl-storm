@@ -328,6 +328,12 @@ class Logger : public carl::Singleton<Logger> {
 
    public:
     /**
+     * Returns the single pool instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining Singleton::getInstance() gets its own copy.
+     */
+    static Logger& getInstance();
+
+    /**
      * Check if a Sink with the given id has been installed.
      * @param id Sink identifier.
      * @return If a Sink with this id is present.

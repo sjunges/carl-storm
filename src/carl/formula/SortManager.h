@@ -187,6 +187,12 @@ class SortManager : public Singleton<SortManager> {
    public:
     ~SortManager() noexcept override = default;
 
+    /**
+     * Returns the single pool instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining Singleton::getInstance() gets its own copy.
+     */
+    static SortManager& getInstance();
+
     void clear() {
         mSorts.clear();
         mSortTypes.clear();

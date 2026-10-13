@@ -67,6 +67,11 @@ Monomial::Arg MonomialPool::add(const Monomial::Arg& _monomial) {
     return MonomialPool::add(std::move(PoolEntry(_monomial->hash(), _monomial->exponents(), _monomial)));
 }
 #endif
+MonomialPool& MonomialPool::getInstance() {
+    static MonomialPool instance;
+    return instance;
+}
+
 Monomial::Arg MonomialPool::add(Monomial::Content&& c, exponent totalDegree) {
     return MonomialPool::add(PoolEntry(std::move(c)), totalDegree);
 }

@@ -17,6 +17,11 @@ VariablePool::VariablePool() noexcept {
     setPrefix();
 }
 
+VariablePool& VariablePool::getInstance() {
+    static VariablePool instance;
+    return instance;
+}
+
 Variable VariablePool::getFreshVariable(VariableType type) noexcept {
     std::size_t tmp = 0;
     {
