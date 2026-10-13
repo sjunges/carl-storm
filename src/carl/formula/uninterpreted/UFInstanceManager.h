@@ -136,8 +136,7 @@ namespace carl {
 /**
  * Implements a manager for uninterpreted function instances, containing their actual contents and allocating their ids.
  */
-class UFInstanceManager : public Singleton<UFInstanceManager> {
-    friend Singleton<UFInstanceManager>;
+class CARL_EXPORT UFInstanceManager : public Singleton<UFInstanceManager> {
 
    private:
     // Members.
@@ -169,6 +168,12 @@ class UFInstanceManager : public Singleton<UFInstanceManager> {
     UFInstance newUFInstance(const UFInstanceContent* _ufic);
 
    public:
+    /**
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
+     */
+    static UFInstanceManager& getInstance();
+
     /**
      * @param _ufi An uninterpreted function instance.
      * @return The underlying uninterpreted function of the uninterpreted function of the given uninterpreted function instance.

@@ -90,7 +90,7 @@ class GaloisField {
 };
 
 template<typename IntegerType>
-class GaloisFieldManager : public Singleton<GaloisFieldManager<IntegerType>> {
+class GaloisFieldManager : public InlineSingleton<GaloisFieldManager<IntegerType>> {
    public:
     using BaseIntType = typename GaloisField<IntegerType>::BaseIntType;
 

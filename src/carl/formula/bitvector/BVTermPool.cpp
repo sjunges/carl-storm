@@ -6,6 +6,9 @@
 #include "BVTermPool.h"
 
 namespace carl {
+
+CARL_DEFINE_SINGLETON_INSTANCE(BVTermPool)
+
 BVTermPool::BVTermPool() : mpInvalid(add(new Term)) {}
 
 BVTermPool::ConstTermPtr BVTermPool::create() {

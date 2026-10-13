@@ -17,8 +17,8 @@
 
 namespace carl {
 template<typename Pol>
-class ConstraintPool : public Singleton<ConstraintPool<Pol>> {
-    friend Singleton<ConstraintPool>;
+class ConstraintPool : public InlineSingleton<ConstraintPool<Pol>> {
+    friend InlineSingleton<ConstraintPool>;
 
    private:
     // Members:

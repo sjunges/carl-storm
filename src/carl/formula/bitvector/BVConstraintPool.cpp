@@ -8,6 +8,9 @@
 #include "BVConstraint.h"
 
 namespace carl {
+
+CARL_DEFINE_SINGLETON_INSTANCE(BVConstraintPool)
+
 BVConstraintPool::ConstConstraintPtr BVConstraintPool::create(bool _consistent) {
     return this->add(new Constraint(_consistent));
 }

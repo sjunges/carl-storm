@@ -12,7 +12,7 @@
 namespace carl {
 template<typename Pol>
 FormulaPool<Pol>::FormulaPool(unsigned _capacity)
-    : Singleton<FormulaPool<Pol>>(),
+    : InlineSingleton<FormulaPool<Pol>>(),
       mIdAllocator(3),
       mpTrue(new FormulaContent<Pol>(TRUE, 1)),
       mpFalse(new FormulaContent<Pol>(FALSE, 2)),

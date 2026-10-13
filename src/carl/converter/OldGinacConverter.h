@@ -23,8 +23,8 @@
 
 namespace carl {
 template<typename Poly>
-class OldGinacConverter : public Singleton<OldGinacConverter<Poly>> {
-    friend Singleton<OldGinacConverter>;
+class OldGinacConverter : public InlineSingleton<OldGinacConverter<Poly>> {
+    friend InlineSingleton<OldGinacConverter>;
 
    private:
     std::recursive_mutex mMutex;

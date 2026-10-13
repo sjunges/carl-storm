@@ -317,8 +317,7 @@ class Formatter {
 /**
  * Main logger class.
  */
-class Logger : public carl::Singleton<Logger> {
-    friend carl::Singleton<Logger>;
+class CARL_EXPORT Logger : public carl::Singleton<Logger> {
     /// Mapping from channels to associated logging classes.
     std::map<std::string, std::tuple<std::shared_ptr<Sink>, Filter, std::shared_ptr<Formatter>>> mData;
     /// Logging mutex to ensure thread-safe logging.
@@ -328,8 +327,8 @@ class Logger : public carl::Singleton<Logger> {
 
    public:
     /**
-     * Returns the single pool instance. Deliberately not inline: the instance must live in libcarl only,
-     * otherwise every library inlining Singleton::getInstance() gets its own copy.
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
      */
     static Logger& getInstance();
 

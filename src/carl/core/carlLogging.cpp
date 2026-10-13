@@ -7,10 +7,7 @@
 namespace carl {
 namespace logging {
 
-Logger& Logger::getInstance() {
-    static Logger instance;
-    return instance;
-}
+CARL_DEFINE_SINGLETON_INSTANCE(Logger)
 
 }  // namespace logging
 }  // namespace carl

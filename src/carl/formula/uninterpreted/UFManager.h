@@ -139,8 +139,7 @@ namespace carl {
 /**
  * Implements a manager for uninterpreted functions, containing their actual contents and allocating their ids.
  */
-class UFManager : public Singleton<UFManager> {
-    friend Singleton<UFManager>;
+class CARL_EXPORT UFManager : public Singleton<UFManager> {
 
    private:
     // Members.
@@ -172,6 +171,12 @@ class UFManager : public Singleton<UFManager> {
     UninterpretedFunction newUF(const UFContent* _sc);
 
    public:
+    /**
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
+     */
+    static UFManager& getInstance();
+
     const std::vector<const UFContent*>& ufContents() const {
         return mUFs;
     }

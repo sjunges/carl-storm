@@ -106,9 +106,7 @@ inline bool operator<(const SortContent& lhs, const SortContent& rhs) {
 /**
  * Implements a manager for sorts, containing the actual contents of these sort and allocating their ids.
  */
-class SortManager : public Singleton<SortManager> {
-    friend Singleton<SortManager>;
-
+class CARL_EXPORT SortManager : public Singleton<SortManager> {
    public:
     /// The type of a sort template, define by define-sort.
     using SortTemplate = std::pair<std::vector<std::string>, Sort>;
@@ -188,8 +186,8 @@ class SortManager : public Singleton<SortManager> {
     ~SortManager() noexcept override = default;
 
     /**
-     * Returns the single pool instance. Deliberately not inline: the instance must live in libcarl only,
-     * otherwise every library inlining Singleton::getInstance() gets its own copy.
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
      */
     static SortManager& getInstance();
 

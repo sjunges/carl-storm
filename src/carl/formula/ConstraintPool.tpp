@@ -13,7 +13,7 @@
 namespace carl {
 template<typename Pol>
 ConstraintPool<Pol>::ConstraintPool(unsigned _capacity)
-    : Singleton<ConstraintPool<Pol>>(),
+    : InlineSingleton<ConstraintPool<Pol>>(),
       mLastConstructedConstraintWasKnown(false),
       mIdAllocator(1),
       mConsistentConstraint(new ConstraintContent<Pol>(Pol(typename Pol::NumberType(0)), Relation::EQ, 1)),

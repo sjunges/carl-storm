@@ -23,9 +23,7 @@ namespace carl {
 /**
  * Implements a manager for sort values, containing the actual contents of these sort and allocating their ids.
  */
-class SortValueManager : public Singleton<SortValueManager> {
-    friend Singleton<SortValueManager>;
-
+class CARL_EXPORT SortValueManager : public Singleton<SortValueManager> {
    private:
     // Members.
 
@@ -38,6 +36,12 @@ class SortValueManager : public Singleton<SortValueManager> {
     SortValueManager() = default;
 
    public:
+    /**
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
+     */
+    static SortValueManager& getInstance();
+
     /**
      * Creates a new value for the given sort.
      * @param _sort The sort to create a new value for.

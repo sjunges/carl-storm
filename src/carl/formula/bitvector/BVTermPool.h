@@ -9,10 +9,15 @@
 #include "Pool.h"
 
 namespace carl {
-class BVTermPool : public Singleton<BVTermPool>, public Pool<BVTermContent> {
-    friend Singleton<BVTermPool>;
+class CARL_EXPORT BVTermPool : public Singleton<BVTermPool>, public Pool<BVTermContent> {
 
    public:
+    /**
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
+     */
+    static BVTermPool& getInstance();
+
     using Term = BVTermContent;
     using TermPtr = Term*;
     using ConstTermPtr = const Term*;

@@ -10,10 +10,7 @@
 
 namespace carl {
 
-SortManager& SortManager::getInstance() {
-    static SortManager instance;
-    return instance;
-}
+CARL_DEFINE_SINGLETON_INSTANCE(SortManager)
 
 std::ostream& SortManager::print(std::ostream& os, const Sort& sort) const {
     const SortContent& sc = getContent(sort);

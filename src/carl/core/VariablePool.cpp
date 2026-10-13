@@ -17,10 +17,7 @@ VariablePool::VariablePool() noexcept {
     setPrefix();
 }
 
-VariablePool& VariablePool::getInstance() {
-    static VariablePool instance;
-    return instance;
-}
+CARL_DEFINE_SINGLETON_INSTANCE(VariablePool)
 
 Variable VariablePool::getFreshVariable(VariableType type) noexcept {
     std::size_t tmp = 0;

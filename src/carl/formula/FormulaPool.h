@@ -22,8 +22,8 @@
 namespace carl {
 
 template<typename Pol>
-class FormulaPool : public Singleton<FormulaPool<Pol>> {
-    friend Singleton<FormulaPool>;
+class FormulaPool : public InlineSingleton<FormulaPool<Pol>> {
+    friend InlineSingleton<FormulaPool>;
     friend Formula<Pol>;
 
    private:

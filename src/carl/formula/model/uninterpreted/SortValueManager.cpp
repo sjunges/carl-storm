@@ -9,6 +9,8 @@
 
 namespace carl {
 
+CARL_DEFINE_SINGLETON_INSTANCE(SortValueManager)
+
 SortValue SortValueManager::newSortValue(const carl::Sort& _sort) {
     auto res = mSortValueIDMap.emplace(_sort, 1);
     if (!res.second) {

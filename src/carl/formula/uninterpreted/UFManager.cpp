@@ -9,6 +9,9 @@
 #include <string>
 
 namespace carl {
+
+CARL_DEFINE_SINGLETON_INSTANCE(UFManager)
+
 std::ostream& UFManager::print(std::ostream& _out, const UninterpretedFunction& _uf) const {
     assert(_uf.id() != 0);
     assert(_uf.id() < mUFs.size());

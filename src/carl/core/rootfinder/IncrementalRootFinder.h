@@ -118,7 +118,7 @@ namespace splitting_strategies {
  * Abstract base class for all splitting strategies.
  */
 template<typename Strategy, typename Number>
-struct AbstractStrategy : Singleton<Strategy> {
+struct AbstractStrategy : InlineSingleton<Strategy> {
     virtual void operator()(const Interval<Number>& interval, RootFinder<Number>& finder) = 0;
 };
 

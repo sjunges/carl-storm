@@ -17,8 +17,7 @@
 
 namespace carl {
 
-class __attribute__((visibility("default"))) MonomialPool : public Singleton<MonomialPool> {
-    friend class Singleton<MonomialPool>;
+class CARL_EXPORT MonomialPool : public Singleton<MonomialPool> {
     friend std::ostream& operator<<(std::ostream& os, const MonomialPool& mp);
 
    public:
@@ -90,8 +89,8 @@ class __attribute__((visibility("default"))) MonomialPool : public Singleton<Mon
 
    public:
     /**
-     * Returns the single pool instance. Deliberately not inline: the instance must live in libcarl only,
-     * otherwise every library inlining Singleton::getInstance() gets its own copy.
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
      */
     static MonomialPool& getInstance();
 

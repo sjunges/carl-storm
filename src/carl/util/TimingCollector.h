@@ -9,7 +9,7 @@
 
 namespace carl {
 
-class TimingCollector : public Singleton<TimingCollector> {
+class CARL_EXPORT TimingCollector : public Singleton<TimingCollector> {
    private:
     /// The clock type used jere.
     using clock = std::chrono::high_resolution_clock;
@@ -22,6 +22,12 @@ class TimingCollector : public Singleton<TimingCollector> {
     std::map<std::string, TimingInformation> mData;
 
    public:
+    /**
+     * Returns the single instance. Deliberately not inline: the instance must live in libcarl only,
+     * otherwise every library inlining getInstance() gets its own copy.
+     */
+    static TimingCollector& getInstance();
+
     const auto& data() const {
         return mData;
     }

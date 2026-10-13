@@ -9,6 +9,9 @@
 #include "UFInstanceManager.h"
 
 namespace carl {
+
+CARL_DEFINE_SINGLETON_INSTANCE(UFInstanceManager)
+
 std::ostream& UFInstanceManager::print(std::ostream& _out, const UFInstance& _ufi, bool _infix, bool _friendlyNames) const {
     assert(_ufi.id() != 0);
     assert(_ufi.id() < mUFInstances.size());
