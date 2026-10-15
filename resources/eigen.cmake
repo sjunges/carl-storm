@@ -1,6 +1,7 @@
 ExternalProject_Add(
 		eigen_carl_src
-		GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+		# GitHub mirror of Eigen, used for availability reasons.
+		GIT_REPOSITORY https://github.com/eigen-mirror/eigen.git
 		# This tag should be set from Storm to coincide with Storm's Eigen version
 		GIT_TAG ${CARL_EIGEN_GIT_TAG}
 		SOURCE_DIR ${PROJECT_BINARY_DIR}/resources/Eigen
